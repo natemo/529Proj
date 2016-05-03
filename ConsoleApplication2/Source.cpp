@@ -3,9 +3,9 @@
 #include <string.h>
 #include <cstdlib>
 
-#define SIGNAL_LENGTH 600 //31
-#define FILTER_ORDER 20
-#define DESIRED_SIGNAL (cos(0.1 * i)) + 5
+#define SIGNAL_LENGTH 500 //31
+#define FILTER_ORDER 10
+#define DESIRED_SIGNAL (cos(0.1 * i))
 
 void lms_filter(double x, double w[], double d, double mu, double return_array[]);
 
@@ -36,7 +36,7 @@ main(void)
 
 	double lms_return[2] = { 0.0, 0.0 };
 
-	double mu = 0.002; //0.2
+	double mu = 0.1; //0.35 blows up, 0.3
 	
 	for (int i = 0; i < SIGNAL_LENGTH; i++)
 	{
